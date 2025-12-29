@@ -1,0 +1,274 @@
+/* Storage Catalog Site - Shared Styles */
+
+:root {
+    --bg-color: #0a0a0a;
+    --text-color: #ffffff;
+    --transition-speed: 200ms;
+    --supplier-size: 120px;
+    --company-size: 100px;
+    --product-size: 80px;
+    --indent-size: 24px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Supplier Styles */
+.supplier {
+    margin-bottom: 40px;
+}
+
+.supplier-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 20px;
+    transition: opacity var(--transition-speed) ease-in-out;
+}
+
+.supplier-header:hover {
+    opacity: 0.7;
+}
+
+.supplier-logo {
+    width: var(--supplier-size);
+    height: var(--supplier-size);
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 16px;
+    background-color: #1a1a1a;
+}
+
+.supplier-name {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    display: flex;
+    align-items: center;
+}
+
+.supplier-arrow {
+    font-size: 20px;
+    margin-left: 12px;
+    transition: transform var(--transition-speed) ease-in-out;
+}
+
+.supplier.expanded .supplier-arrow {
+    transform: rotate(180deg);
+}
+
+.supplier-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height var(--transition-speed) ease-in-out;
+    padding-left: var(--indent-size);
+}
+
+.supplier.expanded .supplier-content {
+    max-height: 2000px;
+}
+
+/* Company Styles */
+.company {
+    margin-bottom: 30px;
+}
+
+.company-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 16px;
+    transition: opacity var(--transition-speed) ease-in-out;
+}
+
+.company-header:hover {
+    opacity: 0.7;
+}
+
+.company-logo {
+    width: var(--company-size);
+    height: var(--company-size);
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 12px;
+    background-color: #1a1a1a;
+}
+
+.company-name {
+    font-size: 20px;
+    font-weight: 500;
+    text-align: center;
+    display: flex;
+    align-items: center;
+}
+
+.company-arrow {
+    font-size: 16px;
+    margin-left: 8px;
+    transition: transform var(--transition-speed) ease-in-out;
+}
+
+.company.expanded .company-arrow {
+    transform: rotate(180deg);
+}
+
+.company-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height var(--transition-speed) ease-in-out;
+    padding-left: var(--indent-size);
+}
+
+.company.expanded .company-content {
+    max-height: 1500px;
+}
+
+/* Product Styles */
+.product {
+    display: flex;
+    align-items: flex-start;
+    padding: 16px;
+    margin-bottom: 16px;
+    transition: opacity var(--transition-speed) ease-in-out;
+}
+
+.product:hover {
+    opacity: 0.8;
+}
+
+.product-image {
+    width: var(--product-size);
+    height: var(--product-size);
+    object-fit: cover;
+    margin-right: 16px;
+    flex-shrink: 0;
+    background-color: #1a1a1a;
+}
+
+.product-info {
+    flex: 1;
+}
+
+.product-name {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.product-description {
+    font-size: 14px;
+    opacity: 0.8;
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+.product-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.product-metric {
+    opacity: 0.7;
+}
+
+.product-price {
+    font-weight: bold;
+}
+
+/* Empty State */
+.empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    opacity: 0.6;
+}
+
+.empty-state h2 {
+    font-size: 24px;
+    margin-bottom: 16px;
+}
+
+.empty-state p {
+    font-size: 16px;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    body {
+        padding: 16px;
+    }
+
+    .supplier-name {
+        font-size: 20px;
+    }
+
+    .company-name {
+        font-size: 18px;
+    }
+
+    .product-name {
+        font-size: 16px;
+    }
+
+    .product-description {
+        font-size: 13px;
+    }
+
+    .product-meta {
+        font-size: 14px;
+    }
+
+    :root {
+        --supplier-size: 100px;
+        --company-size: 80px;
+        --product-size: 60px;
+        --indent-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    :root {
+        --supplier-size: 80px;
+        --company-size: 60px;
+        --product-size: 50px;
+    }
+
+    .product {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .product-image {
+        margin-right: 0;
+        margin-bottom: 12px;
+    }
+
+    .product-meta {
+        flex-direction: column;
+        gap: 4px;
+    }
+}
